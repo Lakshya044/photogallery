@@ -47,8 +47,8 @@ function SignUpForm() {
         // Form data successfully submitted     JSON.stringify
         // You can perform additional actions here, e.g., display success message, redirect user, etc.
       } else {
-        const errorData = await response.json();
-        setValidationMessage(errorData.error || "Failed to submit form data");
+        console.error("some error is there");
+       
       }
     }catch (error) {
         console.error("Error submitting form data:", error);
