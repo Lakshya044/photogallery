@@ -1,6 +1,7 @@
 const uploadphoto = require("../model/upload.model");
 const cloudinary = require("../utils/cloudinary");
 
+
 const fetchphoto = async (req, res) => {
   try {
     const photo = await uploadphoto.find().sort({ createdAt: "descending" });

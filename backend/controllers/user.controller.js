@@ -8,7 +8,7 @@ const registeruser = async (req, res) => {
       phonenumber,
       password,
     } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
     try {
       const user = await users.findOne({ username:username  });
       if (user) {
