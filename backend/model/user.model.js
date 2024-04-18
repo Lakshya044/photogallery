@@ -3,21 +3,21 @@ const bcrypt = require("bcrypt");
 const asUser=new mongoose.Schema({
     name:{
         type:String,
-        required:true
+        // required:true
     },
     username:{
         type:String,
         unique:true,
-        required:true
+        // required:true
     },
     phonenumber:{
-        type:Number,
-        unique:true,
-        required:true
+        type:String,
+        // unique:true,
+        // required:true
     },
     password:{
         type:String,
-        required:true
+        // required:true
     },
     
 },{timestamps:true});
@@ -28,5 +28,5 @@ asUser.pre('save', async function (next) {
      this.password = await bcrypt.hash(this.password, 10);
    });
 
-const users =mongoose.model("users",asUser)
+const users = mongoose.model("users",asUser)
 module.exports=users;

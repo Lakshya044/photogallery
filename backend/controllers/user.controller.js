@@ -8,26 +8,29 @@ const registeruser = async (req, res) => {
       phonenumber,
       password,
     } = req.body;
-  // console.log(req.body);
+  console.log(req.body);
     try {
-      const user = await users.findOne({ username:username  });
+      const user = await users.findOne({username:username});
       if (user) {
         res.status(422).json({ error: "This username is Already Exist" });
       } else {
-        const finaluser = await users({
+        const finaluser = await users.create({
           name: name,
           username:username,
           phonenumber: phonenumber,
           password: password,
         });
-        //here password hashed
+        //here password hashed await finaluser.save();
+        // console.log(finaluser)
         const storeData = await finaluser.save();
+        console.log(finaluser)
         console.log(storeData);
-        res.status(201).json({ status: 201, storeData });
+        res.status(201).json({storeData });
       }
     } catch (error) {
       res.status(422).json(error);
-      console.log("catch block error");
+      console.log("catch block error:", error);
+
     }
   };
 

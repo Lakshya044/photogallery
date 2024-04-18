@@ -11,6 +11,7 @@ const fetchphoto = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+console.log(fetchphoto)
 
 
 const postphoto = async (req, res) => {

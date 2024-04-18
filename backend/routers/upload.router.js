@@ -5,6 +5,6 @@ const {isAuthuser}=require("../middlewares/auth.middleware")
 const router=express.Router();
 
 router.get('/get',uploadcontroller.fetchphoto);
-router.post('/post',isAuthuser,upload.single('photos') ,uploadcontroller.postphoto);
+router.post('/post',upload.single('photos') ,uploadcontroller.postphoto);
 module.exports=router;
 // uploadphotoMiddleware,isAuthuser, upload.single('file'),
